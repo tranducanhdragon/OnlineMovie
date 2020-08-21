@@ -1,0 +1,27 @@
+﻿@model IEnumerable<XemphimOnline.Model.TheLoai>
+
+<div class="col-sm-4">
+    <ul class="multi-column-dropdown">
+        @foreach (var item in Model)
+        {
+            <li><a href="genres.html">@item.TenTL</a></li>
+        }
+    </ul>
+</div>
+@*<div class="col-sm-4">
+        <ul class="multi-column-dropdown">
+            <li><a href="genres.html">Gia đình</a></li>
+            <li><a href="comedy.html">Hình sự</a></li>
+            <li><a href="genres.html">Hoạt hình</a></li>
+            <li><a href="genres.html">Chiến tranh</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <ul class="multi-column-dropdown">
+            <li><a href="horror.html">Viễn tưởng</a></li>
+            <li><a href="genres.html">Tâm lý</a></li>
+            <li><a href="genres.html">Kinh dị</a></li>
+            <li><a href="genres.html">18+</a></li>
+        </ul>
+    </div>
+*@
