@@ -1,8 +1,6 @@
-﻿
-@{
-    ViewBag.Title = "TrangChu";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model IEnumerable<XemphimOnline.Model.PhanPhim>
+@{ ViewBag.Title = "TrangChu";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <!-- banner -->
 <div id="slidey" style="display:none;">
@@ -18,13 +16,13 @@
 <script src="/Content/js/jquery.slidey.js"></script>
 <script src="/Content/js/jquery.dotdotdot.min.js"></script>
 <script type="text/javascript">
-			$("#slidey").slidey({
-				interval: 8000,
-				listCount: 5,
-				autoplay: false,
-				showList: true
-			});
-			$(".slidey-list-description").dotdotdot();
+    $("#slidey").slidey({
+        interval: 8000,
+        listCount: 5,
+        autoplay: false,
+        showList: true
+    });
+    $(".slidey-list-description").dotdotdot();
 </script>
 <!-- //banner -->
 <!-- banner-bottom -->
@@ -32,267 +30,43 @@
     <div class="container">
         <div class="w3_agile_banner_bottom_grid">
             <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m13.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Citizen Soldier</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                    </ul>
+
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
+                            <a href="/Movie/ChiTietPhim/@item.MaPhim" class="hvr-shutter-out-horizontal">
+                                <img src="/Content/images/m13.jpg" title="album-name" class="img-responsive" alt=" " />
+                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                            </a>
+                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                <div class="w3l-movie-text">
+                                    <h6><a href="/Movie/ChiTietPhim/@item.MaPhim">@item.TenPhim</a></h6>
                                 </div>
-                                <div class="clearfix"></div>
+                                <div class="mid-2 agile_mid_2_home">
+                                    <p>@item.NamXB </p>
+                                    <div class="block-stars">
+                                        <ul class="w3l-ratings">
+                                            @for (int i = 0; i < item.DanhGia; ++i)
+                                            {
+                                                <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            }
+
+                                            @*<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>*@
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
+                            <div class="ribben">
+                                <p>FHD</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m11.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">X-Men</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m12.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Greater</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m7.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Light B/t Oceans</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m8.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">The BFG</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m9.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Central Intelligence</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m10.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Don't Think Twice</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">Peter</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                        <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                            <img src="/Content/images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
-                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                        </a>
-                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                            <div class="w3l-movie-text">
-                                <h6><a href="/ChiTietPhim">God’s Compass</a></h6>
-                            </div>
-                            <div class="mid-2 agile_mid_2_home">
-                                <p>2016</p>
-                                <div class="block-stars">
-                                    <ul class="w3l-ratings">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="ribben">
-                            <p>FHD</p>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -321,331 +95,40 @@
             <div id="myTab/Content" class="tab-/Content">
                 <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
                     <div class="w3_agile_featured_movies">
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m15.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">God’s Compass</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        </ul>
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-2 w3l-movie-gride-agile">
+                                <a href="/Movie/ChiTietPhim/@item.MaPhim" class="hvr-shutter-out-horizontal">
+                                    <img src="/Content/images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
+                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                </a>
+                                <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                    <div class="w3l-movie-text">
+                                        <h6><a href="/Movie/ChiTietPhim/@item.MaPhim">@item.TenPhim</a></h6>
                                     </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m2.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Bad Moms</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
+                                    <div class="mid-2 agile_mid_2_home">
+                                        <p>2016</p>
+                                        <div class="block-stars">
+                                            <ul class="w3l-ratings">
+                                                @for (int i = 0; i < item.DanhGia; ++i)
+                                                {
+                                                      <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>}
+
+                                                @*<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>*@
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
                                     </div>
-                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="ribben">
+                                    <p>FHD</p>
                                 </div>
                             </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m5.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Jason Bourne</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m16.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Rezort</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m17.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Peter</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m18.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">ISRA 88</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m1.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">War Dogs</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m14.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">The Other Side</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m19.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Civil War</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m20.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">The Secret Life of Pets</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m21.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">The Jungle Book</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="/ChiTietPhim" class="hvr-shutter-out-horizontal">
-                                <img src="/Content/images/m22.jpg" title="album-name" class="img-responsive" alt=" " />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="/ChiTietPhim">Assassin's Creed 3</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>2016</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>FHD</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
+                         }
+                            <div class="clearfix"> </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
@@ -1589,14 +1072,14 @@
         <link rel="stylesheet" href="/Content/css/flexslider.css" type="text/css" media="screen" property="" />
         <script defer src="/Content/js/jquery.flexslider.js"></script>
         <script type="text/javascript">
-				$(window).load(function(){
-				  $('.flexslider').flexslider({
-					animation: "slide",
-					start: function(slider){
-					  $('body').removeClass('loading');
-					}
-				  });
-				});
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
         </script>
         <!-- //flexSlider -->
     </div>

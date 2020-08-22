@@ -1,4 +1,4 @@
-﻿
+﻿@model XemphimOnline.Model.PhanPhim
 @{
     ViewBag.Title = "ChiTietPhim";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
         <!-- /w3l-medile-movies-grids -->
         <div class="agileits-single-top">
             <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/Home/TrangChu">Home</a></li>
                 <li class="active">Single</li>
             </ol>
         </div>
@@ -25,10 +25,10 @@
                 <div class="col-sm-8 single-left">
                     <div class="song">
                         <div class="song-info">
-                            <h3>Harry Potter and the Prisoner of Azkaban</h3>
+                            <h3>@Model.TenPhim</h3>
                         </div>
                         <div class="video-grid-single-page-agileits">
-                            <div data-video="1a1u4VbiD6AfVFRzStFF2rU0xHk5uL-_u" id="video">
+                            <div data-video=@Model.MaPhim id="video">
                                 <img src="/Content/images/5.jpg" alt="" class="img-responsive" />
                             </div>
                             <img src="/Content/images/logo.png" alt="" class="ImgLogo" />
@@ -44,13 +44,13 @@
                             </div>
                         </div>
                         <div class="col-md-8 NoiDung agile_tv_series_grid_right">
-                            <p class="fexi_header">Harry Potter and the Prisoner of Azkaban</p>
+                            <p class="fexi_header">@Model.TenPhim</p>
                             <p class="fexi_header_para">
                                 <span class="conjuring_w3">Cốt truyện<label>:</label></span>
                                 720p,Bluray HD Free Movie Downloads, Watch Free Movies Online with high
                                 speed Free Movie Streaming | MyDownloadTube Lorraine and Ed Warren go to north...
                             </p>
-                            <p class="fexi_header_para"><span>Công chiếu<label>:</label></span> Jun 10, 2016 </p>
+                            <p class="fexi_header_para"><span>Công chiếu<label>:</label></span> @Model.NamXB </p>
                             <p class="fexi_header_para">
                                 <span>Thể loại<label>:</label> </span>
                                 <a href="genres.html">Drama</a> |
@@ -72,7 +72,7 @@
                             </p>
                             <p class="fexi_header_para"><span>Chất lượng<label>:</label></span> FHD </p>
 
-                            <p class="fexi_header_para"><span>Lượt xem<label>:</label></span> 100 </p>
+                            <p class="fexi_header_para"><span>Lượt xem<label>:</label></span> @Model.LuotXem </p>
                             <p class="fexi_header_para fexi_header_para1">
                                 <span>Đánh giá<label>:</label></span>
                                 <a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>

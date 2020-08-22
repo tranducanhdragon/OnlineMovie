@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XemphimOnline.DAO;
+using XemphimOnline.Model;
 
 namespace XemphimOnline.Controllers
 {
@@ -10,9 +12,10 @@ namespace XemphimOnline.Controllers
     {
         // GET: Movie
     
-        public ActionResult ChiTietPhim()
+        public ActionResult ChiTietPhim(string id)
         {
-            return View();
+            PhanPhim p = new PhanPhimDAO().GetPhanPhim(id);
+            return View(p);
         }
     }
 }

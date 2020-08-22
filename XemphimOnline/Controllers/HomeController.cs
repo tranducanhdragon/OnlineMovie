@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XemphimOnline.Model;
+using XemphimOnline.DAO;
 
 namespace XemphimOnline.Controllers
 {
@@ -12,7 +13,8 @@ namespace XemphimOnline.Controllers
         ModelOneMovie db = new ModelOneMovie();
         public ActionResult TrangChu()
         {
-            return View();
+            List<PhanPhim> phim = new PhanPhimDAO().GetListPhanPhim();
+            return View(phim);
         }
         public PartialViewResult DrTheLoai()
         {           
