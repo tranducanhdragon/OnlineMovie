@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "TaoBoPhim";
+}
+
+<h2>TaoBoPhim</h2>
+<style type="text/css">
+    table.imagetable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+    }
+
+        table.imagetable th {
+            background: #b5cfd2 url('cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+
+        table.imagetable td {
+            /*background: #dcddc0 url('cell-grey.jpg');*/
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+</style>
+
+<center>
+    <div style="width:100%;">
+        <table class="imagetable">
+            <tr>
+                <td>
+                    <h4>Tạo bộ phim mới</h4>
+                    @using (Html.BeginForm("TaoBoPhim", "AdminHome", FormMethod.Post))
+                    {
+                        <p>
+                            Tên bộ phim :<input type="text" name="TenBoPhim" id="txtFolderName" style="align-content:center" />
+                            <input type="submit" class="CreateFolder" value="Tạo bộ phim" style="align-content:center" />
+                        </p>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br />
+</center>

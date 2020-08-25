@@ -1,0 +1,78 @@
+﻿@model XemphimOnline.Areas.Admin.Model.FileModel
+@{
+    ViewBag.Title = "TaoPhanPhim";
+}
+
+<h2>Tạo phần phim hoặc upload 1 phim</h2>
+
+<style type="text/css">
+    table.imagetable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+    }
+
+        table.imagetable th {
+            background: #b5cfd2 url('cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+
+        table.imagetable td {
+            /*background: #dcddc0 url('cell-grey.jpg');*/
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+</style>
+
+<center>
+    <div style="width:100%;">
+        <table class="imagetable">
+            <tr>
+                <td>
+                    <h4>Tạo phần cho bộ phim</h4>
+                    @using (Html.BeginForm("TaoPhanPhim", "AdminHome", FormMethod.Post))
+                    {
+                        <p>
+                            <input type="hidden" name=Id value=@ViewBag.BPid>
+                            Tên phần phim :<input type="text" name="TenPhanPhim" id="txtFolderName" style="align-content:center" />
+                            <input type="submit" class="CreateFolder" value="Tạo phần phim" style="align-content:center" />
+                        </p>
+                    }
+                </td>
+                <td>
+                    <h4>Tải video và phụ đề lên phim</h4>
+                    @using (Html.BeginForm("TaiLenPhim", "AdminHome", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <label>Tải video và phụ đề :</label>
+                        <input type="hidden" name=Id value=@ViewBag.BPid>
+                        @*<input type="file" name="video" id="file" style="width:176px;" />*@
+                        @Html.TextBoxFor(model => model.Files, "", new { @type = "file", @multiple = "multiple" })
+                        @Html.ValidationMessageFor(model => model.Files, "", new{@class = "text-danger"})
+                        <input type="submit" value="Upload" />
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/Admin/AdminHome/AdminTrangChu/">Xong( Quay về trang chủ)</a>
+                </td>
+            </tr>
+        </table>
+        <h3>Hướng dẫn sử dụng</h3>
+        <p>
+            1. Nếu chon upload một phim, upload xong vui lòng quay về trang chủ ngay
+            <br/>
+            2. Nếu chọn upload nhiều phần phim, upload video và phụ đề của phim đó ngay sau khi tạo phần phim và tên
+        </p>
+    </div>
+
+    <br />
+</center>
