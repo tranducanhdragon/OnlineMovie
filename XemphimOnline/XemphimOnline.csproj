@@ -156,6 +156,7 @@
     <Compile Include="Areas\Admin\Model\GoogleDriveFiles.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="DAO\BoPhimDAO.cs" />
     <Compile Include="DAO\PhanPhimDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
