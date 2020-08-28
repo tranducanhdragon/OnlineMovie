@@ -28,5 +28,9 @@ namespace XemphimOnline.DAO
             };
             db.Database.ExecuteSqlCommand("ThemBoPhim @tenbp, @phimbo, @tendd, @maqg, @matl, @manxb", para);
         }
+        public List<string> ListTenBoPhim(string keyword)
+        {
+            return db.BoPhims.Where(x => x.TenBP.Contains(keyword)).Select(x => x.TenBP).ToList();
+        }
     }
 }

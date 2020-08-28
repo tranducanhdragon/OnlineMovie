@@ -180,6 +180,7 @@
     <Content Include="assets\css-js\css\faqstyle.css" />
     <Content Include="assets\css-js\css\flexslider.css" />
     <Content Include="assets\css-js\css\font-awesome.min.css" />
+    <Content Include="assets\css-js\css\jquery-ui.css" />
     <Content Include="assets\css-js\css\jquery.slidey.min.css" />
     <Content Include="assets\css-js\css\medile.css" />
     <Content Include="assets\css-js\css\news.css" />
@@ -265,9 +266,12 @@
     <Content Include="assets\css-js\images\news1.jpg" />
     <Content Include="assets\css-js\images\play-button.png" />
     <Content Include="assets\css-js\images\user.jpg" />
+    <Content Include="assets\css-js\js\baseController.js" />
     <Content Include="assets\css-js\js\bootstrap.min.js" />
     <Content Include="assets\css-js\js\easing.js" />
+    <Content Include="assets\css-js\js\jquery-1.12.4.js" />
     <Content Include="assets\css-js\js\jquery-2.1.4.min.js" />
+    <Content Include="assets\css-js\js\jquery-ui.js" />
     <Content Include="assets\css-js\js\jquery.dotdotdot.min.js" />
     <Content Include="assets\css-js\js\jquery.flexslider.js" />
     <Content Include="assets\css-js\js\jquery.magnific-popup.js" />

@@ -52,5 +52,14 @@ namespace XemphimOnline.Areas.Admin.Controllers
             GoogleDriveFileRepository.FileUploadInFolder(BoPhimId.Id, files);
             return View("TaoPhanPhim");
         }
+        public JsonResult ListTenBP(string q)
+        {
+            var data = new BoPhimDAO().ListTenBoPhim(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

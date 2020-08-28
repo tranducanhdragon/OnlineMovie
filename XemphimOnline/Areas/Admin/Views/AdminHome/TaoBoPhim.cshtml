@@ -39,15 +39,21 @@
                     <h4>Tạo bộ phim mới</h4>
                     @using (Html.BeginForm("TaoBoPhim", "AdminHome", FormMethod.Post))
                     {
+                        <div class="search_box">
+                            Tên bộ phim :<br/>
+                            <form action="/AdminHome/ListTenBP" method="get">
+                                <input type="text" name="TenBP" id="txtFolderName" style="align-content:center" placeholder="Gõ từ khoá">
+                            </form>
+                        </div>
                         <p>
-                            Tên bộ phim :<br/><input type="text" name="TenBP" id="txtFolderName" style="align-content:center" /><br/>
-                            Phim bộ :<br/><input type="text" name="PhimBo" id="txtFolderName" style="align-content:center" /><br/>
-                            Tên đạo diễn :<br/><input type="text" name="TenDD" id="txtFolderName" style="align-content:center" /><br/>
-                            Mã quốc gia :<br/><input type="text" name="MaQG" id="txtFolderName" style="align-content:center" /><br/>
-                            Mã thể loại :<br/><input type="text" name="MaTL" id="txtFolderName" style="align-content:center" /><br/>
-                            Mã nhà xuất bản :<br/><input type="text" name="MaNXB" id="txtFolderName" style="align-content:center" /><br/>
+                            Phim bộ :<br /><input type="text" name="PhimBo" id="txtFolderName" style="align-content:center" /><br />
+                            Tên đạo diễn :<br /><input type="text" name="TenDD" id="txtFolderName" style="align-content:center" /><br />
+                            Mã quốc gia :<br /><input type="text" name="MaQG" id="txtFolderName" style="align-content:center" /><br />
+                            Mã thể loại :<br /><input type="text" name="MaTL" id="txtFolderName" style="align-content:center" /><br />
+                            Mã nhà xuất bản :<br /><input type="text" name="MaNXB" id="txtFolderName" style="align-content:center" /><br />
                             <input type="submit" class="CreateFolder" value="Tạo bộ phim" style="align-content:center" />
                         </p>
+                        <div class="clear"></div>
                     }
                 </td>
             </tr>
