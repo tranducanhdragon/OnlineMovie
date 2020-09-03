@@ -1,16 +1,20 @@
 ﻿var common = {
     init: function () {
-        common.registerEvent();
+        common.TenBoPhim();
+        common.TenDaoDien();
+        common.MaQuocGia();
+        common.MaTheLoai();
+        common.MaNhaXuatBan();
     },
-    registerEvent: function () {
-        $("#txtFolderName").autocomplete({
+    TenBoPhim: function () {
+        $("#txtTenBoPhim").autocomplete({
             minLength: 0,
             source: function (request, response) {
                 $.ajax({
                     url: "/AdminHome/ListTenBP",
                     dataType: "json",
                     data: {
-                        q: request.term
+                        bp: request.term
                     },
                     success: function (res) {
                         response(res.data);
@@ -18,19 +22,124 @@
                 });
             },
             focus: function (event, ui) {
-                $("#txtFolderName").val(ui.item.label);
+                $("#txtTenBoPhim").val(ui.item.label);
                 return false;
             },
             select: function (event, ui) {
-                $("#txtFolderName").val(ui.item.label);
+                $("#txtTenBoPhim").val(ui.item.label);
                 return false;
             }
-        })
-            .autocomplete("instance")._renderItem = function (ul, item) {
-                return $("<li>")
-                    .append("<a>" + item.label + "</a>")
-                    .appendTo(ul);
-            };
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.label + "</a>").appendTo(ul);
+        };
+    },
+    TenDaoDien: function() {
+        $("#txtTenDaoDien").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/AdminHome/ListTenDD",
+                    dataType: "json",
+                    data: {
+                        dd: request.term
+                    },
+                    success: function (res) {
+                        response(res.data);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#txtTenDaoDien").val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtTenDaoDien").val(ui.item.label);
+                return false;
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.label + "</a>").appendTo(ul);
+        };
+    },
+    MaQuocGia: function() {
+        $("#txtMaQuocGia").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/AdminHome/ListMaQG",
+                    dataType: "json",
+                    data: {
+                        mqg: request.term
+                    },
+                    success: function (res) {
+                        response(res.data);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#txtMaQuocGia").val(ui.item.MaQG);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtMaQuocGia").val(ui.item.MaQG);
+                return false;
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.MaQG+'. '+item.TenQG + "</a>").appendTo(ul);
+        };
+    },
+    MaTheLoai: function() {
+        $("#txtMaTheLoai").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/AdminHome/ListMaTL",
+                    dataType: "json",
+                    data: {
+                        mtl: request.term
+                    },
+                    success: function (res) {
+                        response(res.data);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#txtMaTheLoai").val(ui.item.MaTL);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtMaTheLoai").val(ui.item.MaTL);
+                return false;
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.MaTL+'. '+item.TenTL + "</a>").appendTo(ul);
+        };
+    },
+    MaNhaXuatBan: function() {
+        $("#txtMaNSX").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/AdminHome/ListMaNSX",
+                    dataType: "json",
+                    data: {
+                        mnsx: request.term
+                    },
+                    success: function (res) {
+                        response(res.data);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#txtMaNSX").val(ui.item.MaNSX);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#txtMaNSX").val(ui.item.MaNSX);
+                return false;
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.MaNSX+'. '+item.TenNSX + "</a>").appendTo(ul);
+        };
     }
 }
 common.init();

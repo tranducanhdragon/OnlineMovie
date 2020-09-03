@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web;
 using System.Web.Mvc;
 using XemphimOnline.Areas.Admin.Model;
 using XemphimOnline.DAO;
+using XemphimOnline.Model;
 
 namespace XemphimOnline.Areas.Admin.Controllers
 {
@@ -52,12 +54,59 @@ namespace XemphimOnline.Areas.Admin.Controllers
             GoogleDriveFileRepository.FileUploadInFolder(BoPhimId.Id, files);
             return View("TaoPhanPhim");
         }
-        public JsonResult ListTenBP(string q)
+        public JsonResult ListTenBP(string bp)
         {
-            var data = new BoPhimDAO().ListTenBoPhim(q);
+            var dt = new BoPhimDAO().ListTenBoPhim(bp);
             return Json(new
             {
-                data = data,
+                data = dt,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListTenDD(string dd)
+        {
+            var db = new ModelOneMovie();
+            var dt = db.DaoDiens.Where(x => x.TenDD.Contains(dd)).Select(x => x.TenDD).ToList();
+            return Json(new
+            {
+                data = dt,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListMaQG(string mqg)
+        {
+            //Lấy mã qg sau dấu phẩy cuối cùng
+            string[] token = mqg.Split(',');
+            string last = token[token.Length - 1];
+            var db = new ModelOneMovie();
+            var dt = db.QuocGias.Where(x => x.MaQG.ToString().Contains(last)).Select(x => new { x.MaQG, x.TenQG}).ToList();
+            return Json(new
+            {
+                data = dt,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListMaTL(string mtl)
+        {
+            string[] token = mtl.Split(',');
+            string last = token[token.Length - 1];
+            var db = new ModelOneMovie();
+            var dt = db.TheLoais.Where(x => x.MaTL.ToString().Contains(last)).Select(x => new { x.MaTL, x.TenTL}).ToList();
+            return Json(new
+            {
+                data = dt,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListMaNSX(string mnsx)
+        {
+            string[] token = mnsx.Split(',');
+            string last = token[token.Length - 1];
+            var db = new ModelOneMovie();
+            var dt = db.NSXes.Where(x => x.MaNSX.ToString().Contains(last)).Select(x => new { x.MaNSX, x.TenNSX}).ToList();
+            return Json(new
+            {
+                data = dt,
                 status = true
             }, JsonRequestBehavior.AllowGet);
         }
