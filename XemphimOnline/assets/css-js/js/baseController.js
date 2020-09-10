@@ -1,6 +1,7 @@
 ﻿var common = {
     init: function () {
         common.TenBoPhim();
+        common.MaPhimBo();
         common.TenDaoDien();
         common.MaQuocGia();
         common.MaTheLoai();
@@ -21,16 +22,43 @@
                     }
                 });
             },
-            focus: function (event, ui) {
-                $("#txtTenBoPhim").val(ui.item.label);
-                return false;
-            },
+            //focus: function (event, ui) {
+            //    $("#txtTenBoPhim").val(ui.item.label);
+            //    return false;
+            //},
             select: function (event, ui) {
                 $("#txtTenBoPhim").val(ui.item.label);
                 return false;
             }
         }).autocomplete("instance")._renderItem = function (ul, item) {
             return $("<li>").append("<a>" + item.label + "</a>").appendTo(ul);
+        };
+    },
+    MaPhimBo: function () {
+        $("#txtMaPhimBo").autocomplete({
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax({
+                    url: "/AdminHome/ListMaPB",
+                    dataType: "json",
+                    data: {
+                        mpb: request.term
+                    },
+                    success: function (res) {
+                        response(res.data);
+                    }
+                });
+            },
+            //focus: function (event, ui) {
+            //    $("#txtTenBoPhim").val(ui.item.label);
+            //    return false;
+            //},
+            select: function (event, ui) {
+                $("#txtMaPhimBo").val(ui.item.PhimBo);
+                return false;
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<a>" + item.PhimBo + "." + item.TenBP+ "</a>").appendTo(ul);
         };
     },
     TenDaoDien: function() {
@@ -48,10 +76,10 @@
                     }
                 });
             },
-            focus: function (event, ui) {
-                $("#txtTenDaoDien").val(ui.item.label);
-                return false;
-            },
+            //focus: function (event, ui) {
+            //    $("#txtTenDaoDien").val(ui.item.label);
+            //    return false;
+            //},
             select: function (event, ui) {
                 $("#txtTenDaoDien").val(ui.item.label);
                 return false;
@@ -75,10 +103,10 @@
                     }
                 });
             },
-            focus: function (event, ui) {
-                $("#txtMaQuocGia").val(ui.item.MaQG);
-                return false;
-            },
+            //focus: function (event, ui) {
+            //    $("#txtMaQuocGia").val(ui.item.MaQG);
+            //    return false;
+            //},
             select: function (event, ui) {
                 $("#txtMaQuocGia").val(ui.item.MaQG);
                 return false;
@@ -102,10 +130,10 @@
                     }
                 });
             },
-            focus: function (event, ui) {
-                $("#txtMaTheLoai").val(ui.item.MaTL);
-                return false;
-            },
+            //focus: function (event, ui) {
+            //    $("#txtMaTheLoai").val(ui.item.MaTL);
+            //    return false;
+            //},
             select: function (event, ui) {
                 $("#txtMaTheLoai").val(ui.item.MaTL);
                 return false;
@@ -129,10 +157,10 @@
                     }
                 });
             },
-            focus: function (event, ui) {
-                $("#txtMaNSX").val(ui.item.MaNSX);
-                return false;
-            },
+            //focus: function (event, ui) {
+            //    $("#txtMaNSX").val(ui.item.MaNSX);
+            //    return false;
+            //},
             select: function (event, ui) {
                 $("#txtMaNSX").val(ui.item.MaNSX);
                 return false;

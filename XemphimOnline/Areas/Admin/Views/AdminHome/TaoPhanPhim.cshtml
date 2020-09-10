@@ -53,9 +53,18 @@
                     {
                         <label>Tải video và phụ đề :</label>
                         <input type="hidden" name=Id value=@ViewBag.BPid>
+                        <input type="hidden" name="maBP" value=@ViewBag.maBP>
                         @*<input type="file" name="video" id="file" style="width:176px;" />*@
                         @Html.TextBoxFor(model => model.Files, "", new { @type = "file", @multiple = "multiple" })
-                        @Html.ValidationMessageFor(model => model.Files, "", new{@class = "text-danger"})
+                        @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+                        <p>
+                            Tên phim :<br /><input type="text" name="TP" id="txtFolderName" /><br />
+                            Thời lượng :<br /><input type="text" name="TLg" id="txtFolderName" /><br />
+                            Tập :<br /><input type="text" name="Tap" id="txtFolderName" /><br />
+                            Năm xuất bản :<br /><input type="text" name="NamXB" id="txtFolderName" /><br />
+                            Ảnh nền :<br />@Html.TextBox("LkA", "", new { type = "file" }) <br />
+                            Phim vip :<br /><input type="text" name="PV" id="txtFolderName" /><br />
+                        </p>
                         <input type="submit" value="Upload" />
                     }
                 </td>
@@ -69,7 +78,7 @@
         <h3>Hướng dẫn sử dụng</h3>
         <p>
             1. Nếu chon upload một phim, upload xong vui lòng quay về trang chủ ngay
-            <br/>
+            <br />
             2. Nếu chọn upload nhiều phần phim, upload video và phụ đề của phim đó ngay sau khi tạo phần phim và tên
         </p>
     </div>

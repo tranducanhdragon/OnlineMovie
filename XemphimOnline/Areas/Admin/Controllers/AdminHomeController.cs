@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
@@ -23,15 +24,17 @@ namespace XemphimOnline.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult TaoBoPhim(String TenBP, int PhimBo, string TenDD, string MaQG, string MaTL, string MaNXB)
+        public ActionResult TaoBoPhim(String TenBP, int MaPB, string TenDD, string MaQG, string MaTL, string MaNSX)
         {
             //Lấy parent là shared folder
-            var parent = new List<string> { "0AAPLCg2Lzbh2Uk9PVA"};
+            var parent = "0AAPLCg2Lzbh2Uk9PVA";
+            int maBP=0;
             string BoPhimId = null;
-            GoogleDriveFileRepository.CreateFolder(TenBP, ref BoPhimId, parent);
+            GoogleDriveFileRepository.CreateFolder(TenBP, ref BoPhimId, parent);           
             ViewBag.BPid = BoPhimId;
             //Lưu xuống csdl
-            new BoPhimDAO().ThemBoPhim(TenBP, PhimBo, TenDD, MaQG, MaTL, MaNXB);
+            new BoPhimDAO().ThemBoPhim(TenBP, MaPB, TenDD, MaQG, MaTL, MaNSX,ref maBP);
+            ViewBag.maBP = maBP;
             return View("TaoPhanPhim");
         }
         [HttpGet]
@@ -42,21 +45,41 @@ namespace XemphimOnline.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult TaoPhanPhim(GoogleDriveFiles BoPhimId, String TenPhanPhim)
         {
-            var parent = new List<string> { BoPhimId.Id };
             string PhanPhimId = null;
-            GoogleDriveFileRepository.CreateFolder(TenPhanPhim, ref PhanPhimId, parent);
+            GoogleDriveFileRepository.CreateFolder(TenPhanPhim, ref PhanPhimId, BoPhimId.Id);
             ViewBag.BPid = PhanPhimId;
             return View("TaoPhanPhim");
         }
         [HttpPost]
-        public ActionResult TaiLenPhim(GoogleDriveFiles BoPhimId, HttpPostedFileBase[] files)
+        public ActionResult TaiLenPhim(GoogleDriveFiles BoPhimId, HttpPostedFileBase[] files,string TP,string TLg,int Tap,DateTime NamXB,HttpPostedFileBase LkA,int PV,int maBP)
         {
-            GoogleDriveFileRepository.FileUploadInFolder(BoPhimId.Id, files);
+            string videoID = null;
+            //Lưu vào Drive
+            GoogleDriveFileRepository.FileUploadInFolder(BoPhimId.Id, files,ref videoID);
+            //Lưu vào csdl
+            string _LkAName = null;
+            if (LkA.ContentLength > 0)
+            {
+                _LkAName = Path.GetFileName(LkA.FileName);
+                string _pathLkA = Path.Combine(Server.MapPath("~/LkA_File"), _LkAName);
+                LkA.SaveAs(_pathLkA);
+            }
+            new PhanPhimDAO().ThemPhanPhim(videoID,TP,TLg,Tap,NamXB,_LkAName,PV,maBP);
             return View("TaoPhanPhim");
         }
         public JsonResult ListTenBP(string bp)
         {
             var dt = new BoPhimDAO().ListTenBoPhim(bp);
+            return Json(new
+            {
+                data = dt,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListMaPB(string mpb)
+        {
+            var db = new ModelOneMovie();
+            var dt = db.BoPhims.Where(x=>x.PhimBo.ToString().Contains(mpb)).Select(x=>new { x.PhimBo,x.TenBP}).ToList();
             return Json(new
             {
                 data = dt,

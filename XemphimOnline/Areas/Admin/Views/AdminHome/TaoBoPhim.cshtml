@@ -37,38 +37,44 @@
             <tr>
                 <td>
                     <h4>Tạo bộ phim mới</h4>
-                    @using (Html.BeginForm("TaoBoPhim", "AdminHome", FormMethod.Post))
+                    @using (Html.BeginForm("TaoBoPhim", "AdminHome", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
 
                         <div class="search_box">
                             Tên bộ phim :<br />
-                            <form action="/AdminHome/ListTenBP" method="get">
-                                <input type="text" name="TenBP" id="txtTenBoPhim" style="align-content:center" placeholder="Tên bộ phim">
-                            </form>
+
+                            <input type="text" name="TenBP" id="txtTenBoPhim" style="align-content:center" placeholder="Tên bộ phim">
+
+                        </div>
+                        <div class="search_box">
+                            <br />Mã phim bộ :<br />
+
+                            <input type="text" name="MaPB" id="txtMaPhimBo" style="align-content:center" placeholder="Mã phim bộ">
+
                         </div>
                         <div class="search_box">
                             <br />Tên đạo diễn :<br />
-                            <form action="/AdminHome/ListTenDD" method="get">
-                                <input type="text" name="TenDD" id="txtTenDaoDien" style="align-content:center" placeholder="Tên đạo diễn">
-                            </form>
+
+                            <input type="text" name="TenDD" id="txtTenDaoDien" style="align-content:center" placeholder="Tên đạo diễn">
+
                         </div>
                         <div class="search_box">
                             <br />Mã quốc gia :<br />
-                            <form action="/AdminHome/ListMaQG" method="get">
-                                <input type="text" name="MaQG" id="txtMaQuocGia" style="align-content:center" placeholder="Mã quốc gia">
-                            </form>
+
+                            <input type="text" name="MaQG" id="txtMaQuocGia" style="align-content:center" placeholder="Mã quốc gia">
+
                         </div>
                         <div class="search_box">
                             <br />Mã thể loại :<br />
-                            <form action="/AdminHome/MaTL" method="get">
-                                <input type="text" name="MaTL" id="txtMaTheLoai" style="align-content:center" placeholder="Mã thể loại">
-                            </form>
+
+                            <input type="text" name="MaTL" id="txtMaTheLoai" style="align-content:center" placeholder="Mã thể loại">
+
                         </div>
                         <div class="search_box">
                             <br />Mã nhà sản xuất :<br />
-                            <form action="/AdminHome/ListMaNSX" method="get">
-                                <input type="text" name="MaNSX" id="txtMaNSX" style="align-content:center" placeholder="Mã nhà sản xuất">
-                            </form>
+
+                            <input type="text" name="MaNSX" id="txtMaNSX" style="align-content:center" placeholder="Mã nhà sản xuất">
+
                         </div>
                         <input type="submit" class="CreateFolder" value="Tạo bộ phim" style="align-content:center" />
 

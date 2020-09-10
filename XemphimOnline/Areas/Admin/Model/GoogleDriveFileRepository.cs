@@ -65,7 +65,7 @@ namespace XemphimOnline.Areas.Admin.Model
 
             return service;
         }
-        public static void CreateFolder(string FolderName, ref string folderId, List<string> parent)
+        public static void CreateFolder(string FolderName, ref string folderId, string parent)
         {
             Google.Apis.Drive.v3.DriveService service = GetService_v3();
 
@@ -73,7 +73,7 @@ namespace XemphimOnline.Areas.Admin.Model
             FileMetaData.Name = FolderName;
             FileMetaData.MimeType = "application/vnd.google-apps.folder";
             //idfolder of shared folder in gg drive
-            FileMetaData.Parents = parent;
+            FileMetaData.Parents = new List<string> { parent };
 
             Google.Apis.Drive.v3.FilesResource.CreateRequest request;
 
@@ -84,7 +84,7 @@ namespace XemphimOnline.Areas.Admin.Model
             //Console.WriteLine("Folder ID: " + file.Id);
             folderId = file.Id;
         }
-        public static void FileUploadInFolder(string folderId, HttpPostedFileBase[] files)
+        public static void FileUploadInFolder(string folderId, HttpPostedFileBase[] files, ref string videoID)
         {
             foreach (HttpPostedFileBase file in files)
             {
@@ -115,6 +115,7 @@ namespace XemphimOnline.Areas.Admin.Model
                         request.Upload();
                     }
                     var file1 = request.ResponseBody;
+                    videoID = file1.Id;
                 }
             }
         }
