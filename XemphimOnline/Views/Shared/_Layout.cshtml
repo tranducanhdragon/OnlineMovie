@@ -27,6 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css" />
     <!-- //font-awesome icons -->
     <!-- js -->
+    <script type="text/javascript" src="~/assets/css-js/js/viladated-onemovie.js"></script>
     <script type="text/javascript" src="/Content/js/jquery-2.1.4.min.js"></script>
     <!-- //js -->
     <!-- banner-bottom-plugin -->
@@ -100,22 +101,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="tooltip">Click</div>
                                 </div>
                                 <div class="form">
-                                    <h3>Đăng nhập ngay</h3>
-                                    <form action="#" method="post">
-                                        <input type="text" name="Username" placeholder="Tên đăng nhập" required="">
-                                        <input type="password" name="Password" placeholder="Mật khẩu" required="">
-                                        <input type="submit" value="Đăng nhập">
-                                    </form>
+                                    @{ Html.RenderAction("viewlogin", "login");}
                                 </div>
                                 <div class="form">
-                                    <h3>Tạo tài khoản</h3>
-                                    <form action="#" method="post">
-                                        <input type="text" name="Username" placeholder="Tên đăng nhập" required="">
-                                        <input type="password" name="Password" placeholder="Mật khẩu" required="">
-                                        <input type="email" name="Email" placeholder="Địa chỉ Email" required="">
-                                        <input type="text" name="Phone" placeholder="Số điện thoại" required="">
-                                        <input type="submit" value="Đăng ký">
-                                    </form>
+                                    @{ Html.RenderAction("viewregister" ,"login"); }
                                 </div>
                                 <div class="cta"><a href="#">Quên mật khẩu?</a></div>
                             </div>

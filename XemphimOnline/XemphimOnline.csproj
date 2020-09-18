@@ -72,6 +72,9 @@
     <Reference Include="Google.Apis.PlatformServices, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.49.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -141,11 +144,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -155,6 +153,7 @@
     <Compile Include="Areas\Admin\Model\GoogleDriveFileRepository.cs" />
     <Compile Include="Areas\Admin\Model\GoogleDriveFiles.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="DAO\BoPhimDAO.cs" />
     <Compile Include="DAO\PhanPhimDAO.cs" />
@@ -279,6 +278,7 @@
     <Content Include="assets\css-js\js\move-top.js" />
     <Content Include="assets\css-js\js\owl.carousel.js" />
     <Content Include="assets\css-js\js\simplePlayer.js" />
+    <Content Include="assets\css-js\js\viladated-onemovie.js" />
     <Content Include="assets\css-js\list-css\basictable.css" />
     <Content Include="assets\css-js\list-css\list.css" />
     <Content Include="assets\css-js\list-css\table-style.css" />
@@ -287,6 +287,7 @@
     <Content Include="assets\css-js\list-js\jquery.tools.min.js" />
     <Content Include="assets\css-js\news-css\news.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\button-login-register.css" />
     <Content Include="Content\css\contactstyle.css" />
     <Content Include="Content\css\faqstyle.css" />
     <Content Include="Content\css\flexslider.css" />
@@ -450,6 +451,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\DrTheLoai.cshtml" />
     <Content Include="Views\Home\DrQuocGia.cshtml" />
+    <Content Include="Views\Login\_ViewPartiallogin.cshtml" />
+    <Content Include="Views\Login\_ViewPartialRegister.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
