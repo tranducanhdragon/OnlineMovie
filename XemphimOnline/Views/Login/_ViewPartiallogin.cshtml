@@ -5,22 +5,4 @@
     <input type="password" name="Password" placeholder="Mật khẩu" required="">
     <input type="button" id="submitbutton" value="Đăng nhập">
 </form>
-<script>
-    var frm = $('ajaxlogin');
-    $('#submitbutton').click(function (e) {
-        var datasend = { Username: document.formlogin.Username.value, Password: document.formlogin.Password.value };
-        $.ajax({
-            url: "/login/index",
-            type: "POST",
-            data: datasend,
-            success: function (result) {
-                if (result == "true") {
-                    window.location.href = '/home/trangchu';
-                }
-                else {
-                    window.alert("Tài khoản hoặc mật khẩu không chính xác !!");
-                }
-            },
-        })
-    });
-</script>
+<script src="~/assets/css-js/js/LoginController.js"></script>

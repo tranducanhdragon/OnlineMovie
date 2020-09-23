@@ -18,7 +18,5 @@ namespace XemphimOnline.Model
         public string MatKhau { get; set; }
 
         public int? LoaiTK { get; set; }
-
-        public DateTime? VIPTime { get; set; }
     }
 }

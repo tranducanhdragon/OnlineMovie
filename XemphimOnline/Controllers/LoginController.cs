@@ -6,6 +6,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using XemphimOnline.DAO;
+
 namespace XemphimOnline.Controllers
 {
     public class LoginController : Controller
@@ -19,7 +21,7 @@ namespace XemphimOnline.Controllers
         public JsonResult Index(string Username,string Password)
         {
             string pw = MD5Hash(Password);
-            if(string.Compare(Username,"a",true) == 0 && string.Compare(Password,"a",true) == 0)
+            if(new TaiKhoanDAO().CheckLogin(Username, Password))
             {
                 string result = "true";
                 return Json(result, JsonRequestBehavior.AllowGet);
@@ -32,17 +34,17 @@ namespace XemphimOnline.Controllers
         }
 
         [HttpPost]
-        public JsonResult register(string Username, string Password)
+        public JsonResult Register(string Username, string Password)
         {
             return Json(JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult viewlogin()
+        public ActionResult Viewlogin()
         {
             return PartialView("_ViewPartiallogin");
         }
 
-        public ActionResult viewregister()
+        public ActionResult Viewregister()
         {
             return PartialView("_ViewPartialRegister");
         }

@@ -157,6 +157,7 @@
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="DAO\BoPhimDAO.cs" />
     <Compile Include="DAO\PhanPhimDAO.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -275,6 +276,7 @@
     <Content Include="assets\css-js\js\jquery.flexslider.js" />
     <Content Include="assets\css-js\js\jquery.magnific-popup.js" />
     <Content Include="assets\css-js\js\jquery.slidey.js" />
+    <Content Include="assets\css-js\js\LoginController.js" />
     <Content Include="assets\css-js\js\move-top.js" />
     <Content Include="assets\css-js\js\owl.carousel.js" />
     <Content Include="assets\css-js\js\simplePlayer.js" />
