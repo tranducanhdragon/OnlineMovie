@@ -10,6 +10,7 @@ namespace XemphimOnline.Model
         public ModelOneMovie()
             : base("name=ModelOneMovie")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<BoPhim> BoPhims { get; set; }
